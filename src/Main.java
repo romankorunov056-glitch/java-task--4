@@ -24,9 +24,8 @@ public class Main {
         String test3 = "Java";
 
         System.out.println("null не null? " + notNull.test(test1));
-        System.out.println("null не пуст? " + notEmpty.test(test1)); // будет NullPointerException, поэтому осторожно
-        // безопасная проверка:
-        System.out.println("null не null и не пуст? " + (test1 != null ? notEmpty.test(test1) : false));
+        // Безопасная проверка: сначала проверяем на null, потом на пустоту
+        System.out.println("null не пуст? " + (test1 != null ? notEmpty.test(test1) : false));
         System.out.println("\"\" не null и не пуст? " + notNullOrEmpty.test(test2));
         System.out.println("\"Java\" не null и не пуст? " + notNullOrEmpty.test(test3));
 
@@ -85,4 +84,5 @@ public class Main {
         String json = JsonSerializer.toJson(obj);
         System.out.println("JSON: " + json);
     }
+
 }
